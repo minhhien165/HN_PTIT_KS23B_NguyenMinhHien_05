@@ -273,6 +273,19 @@ def sortPlayers():
             return
     displayAllPlayers()
 
+def playerStatisticsByTitle():
+    title_counts = {}
+    for player in PlayerList:
+        title = player['danh_hieu']
+        if title in title_counts:
+            title_counts[title] += 1
+        else:
+            title_counts[title] = 1
+
+    print("\n--- THỐNG KÊ CẦU THỦ THEO DANH HIỆU ---")
+    for title, count in title_counts.items():
+        print(f"{title}: {count} cầu thủ")
+
 def menu():
     print("1. Hiển thị danh sách cầu thủ")
     print("2. Thêm mới cầu thủ")
@@ -300,7 +313,7 @@ def handle_choice(choice):
         case '6':
             sortPlayers()
         case '7':
-            print("Thống kê cầu thủ theo danh hiệu")
+            playerStatisticsByTitle()
         case '8':
             print("Vẽ biểu đồ thống kê số lượng cầu thủ theo danh hiệu")
         case '9':
